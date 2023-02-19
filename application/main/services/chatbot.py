@@ -428,6 +428,7 @@ class Chatbot:
 
     def __get_ChromeOptions(self):
         options = uc.ChromeOptions()
+        options.binary_location = "/usr/bin/brave-browser"
         options.add_argument("--start_maximized")
         options.add_argument("--disable-extensions")
         options.add_argument("--disable-application-cache")
@@ -435,7 +436,7 @@ class Chatbot:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-setuid-sandbox")
         options.add_argument("--disable-dev-shm-usage")
- 
+        options.add_argument("--user-data-dir=" + "profiles/1/Brave-Browser")
         if self.config.get("proxy", "") != "":
             options.add_argument("--proxy-server=" + self.config["proxy"])
         return options
@@ -675,9 +676,3 @@ def chatGPT_main(configs):
             print(exc)
             continue
 
-# if __name__ == "__main__":
-#     configs = {
-#         "email": "telhunzidiae@hotmail.com",
-#         "password": "yLC7HN12",
-#     }
-#     chatGPT_main(configs)
