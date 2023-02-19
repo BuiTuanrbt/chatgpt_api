@@ -1,6 +1,0 @@
-__pycache__/
-.idea
-.env
-data
-logs/*.log
-.gitignore
